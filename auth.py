@@ -30,7 +30,7 @@ def dinput():
     for i in range(10):
         if (auth == ''):
             auth = 'noauth'
-            break
+            return [auth]
         elif (auth == 'sql' or auth == 'mysql'):
             auth = 'mysql'
             break
@@ -58,8 +58,9 @@ def main():
     data = dinput()
     try:
         match(data[0]):
-            case('no auth'):
+            case('noauth'):
                 #do no auth
+                print("Using noauth you can start the stanalone server using ./start.sh but the server will not connected to RainBowCreationMainNet!")
                 return
             case('mysql'):
                 conn = mysql(data)
@@ -69,7 +70,7 @@ def main():
         print(f"Error: {e}")
         sys.exit(1)
 
-# Get Cursor
+    # Get Cursor
     cur = conn.cursor()
     cur.execute(
         "SELECT * FROM ping")
