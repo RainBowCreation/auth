@@ -109,10 +109,12 @@ def luckperms(data):
                     config['storage-method'] = 'MySQL'
                 case('mariadb'):
                     config['storage-method'] = 'MariaDB'
-            config['database']['database']['username'] = data[next(i)]
-            config['database']['database']['password'] = data[next(i)]
-            config['database']['database']['address'] = data[next(i)]+":"+data[next(i)]
-            config['database']['database']['database'] = data[next(i)]
+            config['data']['database']['username'] = data[next(i)]
+            config['data']['password'] = data[next(i)]
+            config['data']['address'] = data[next(i)]+":"+data[next(i)]
+            config['data']['database'] = data[next(i)]
+            config['data']['pool-setting']['keepalive-time'] = 600000
+            config['sync-minutes'] = 1
         with open(getpath(plugins[2]), "w") as f:
             yaml.dump(config, f)
 
