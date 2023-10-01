@@ -111,7 +111,7 @@ def luckperms(data):
                     config['storage-method'] = 'MariaDB'
             config['data']['username'] = data[next(i)]
             config['data']['password'] = data[next(i)]
-            config['data']['address'] = data[next(i)]+":"+data[next(i)]
+            config['data']['address'] = data[next(i)]+":"+str(data[next(i)])
             config['data']['database'] = data[next(i)]
             config['data']['pool-settings']['keepalive-time'] = 60000
             config['sync-minutes'] = 1
