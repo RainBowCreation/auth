@@ -113,7 +113,7 @@ def luckperms(data):
             config['data']['password'] = data[next(i)]
             config['data']['address'] = data[next(i)]+":"+data[next(i)]
             config['data']['database'] = data[next(i)]
-            config['data']['pool-setting']['keepalive-time'] = 600000
+            config['data']['pool-settings']['keepalive-time'] = 60000
             config['sync-minutes'] = 1
         with open(getpath(plugins[2]), "w") as f:
             yaml.dump(config, f)
