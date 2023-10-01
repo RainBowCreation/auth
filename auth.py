@@ -78,8 +78,6 @@ def rbccore(data):
             config['mySQL']['username'] = data[next(i)]
             config['mySQL']['password'] = data[next(i)]
             config['mySQL']['url'] = data[next(i)]
-            if (data[0] == 'mariadb'):
-                config['mySQL']['url'] = "jdbc:mariadb//"+config['mySQL']['url']
             config['mySQL']['port'] = data[next(i)]
             config['mySQL']['database'] = data[next(i)]
         with open(getpath(plugins[0]), "w") as f:
