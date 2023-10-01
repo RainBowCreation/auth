@@ -109,7 +109,7 @@ def luckperms(data):
                     config['storage-method'] = 'MySQL'
                 case('mariadb'):
                     config['storage-method'] = 'MariaDB'
-            config['data']['database']['username'] = data[next(i)]
+            config['data']['username'] = data[next(i)]
             config['data']['password'] = data[next(i)]
             config['data']['address'] = data[next(i)]+":"+data[next(i)]
             config['data']['database'] = data[next(i)]
