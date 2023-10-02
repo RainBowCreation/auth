@@ -36,7 +36,7 @@ def mariadb(data:list):
 
 def dinput():
     for i in range(10):
-        auth = input("Enter Auth/database type [mysql, mariadb] (Skip will use noauth):").lower()
+        auth = input("Enter Auth/database type [mysql, mariadb] (Skip will use noauth): ").lower()
         if (auth == ''):
             auth = 'noauth'
             return [auth]
@@ -51,19 +51,19 @@ def dinput():
         if (i == 9):
             print("Please ckeck your database type and try again.")
             return None
-    user = input("username (Skip will use root):")
+    user = input("username (Skip will use root): ")
     if (user == ''):
         user = 'root'
-    password = getpass("password(Skip will use nopass):")
-    host = input("host (Skip will use localhost):")
+    password = getpass("password(Skip will use nopass): ")
+    host = input("host (Skip will use localhost): ")
     if (host == ''):
         host = 'localhost'
-    port = input("port (Skip will use 3306):")
+    port = input("port (Skip will use 3306): ")
     if (port == ''):
         port = 3306
     else:
         port = int(port)
-    database = input('database (Skip will use default):')
+    database = input('database (Skip will use default): ')
     return [auth, user, password, host, port, database]
 
 def config_checker():
@@ -151,5 +151,6 @@ def main():
     rbccore(data)
     lands(data)
     luckperms(data)
+    print("Exit you can start server using ./start.sh or run this program again to change auth details.")
     
 main()
