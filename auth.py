@@ -132,7 +132,7 @@ def main():
         sys.exit(1)
     cur = conn.cursor()
     cur.execute(
-        "SELECT * FROM ping")
+        "SELECT * FROM heartbeat")
     for (ping) in cur:
         if (ping[0] == 'pong'):
             print("connected")
