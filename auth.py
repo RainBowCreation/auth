@@ -6,7 +6,7 @@ import mysql.connector as sql
 import mariadb
 from getpass import getpass
 
-plugins = ["RBCcore", "Lands", "LuckPerms"]
+plugins = ["RainBowCreation", "Lands", "LuckPerms"]
 yaml = ruamel.yaml.YAML()
 
 def getpath(plugin):
