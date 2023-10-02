@@ -4,6 +4,7 @@ import itertools
 import ruamel.yaml
 import mysql.connector as sql
 import mariadb
+from getpass import getpass
 
 plugins = ["RBCcore", "Lands", "LuckPerms"]
 yaml = ruamel.yaml.YAML()
@@ -32,9 +33,10 @@ def mariadb(data:list):
         database=data[next(i)]
     )
     return conn
+
 def dinput():
-    auth = input("Enter Auth/database type [mysql, mariadb] (Skip will use noauth):").lower()
     for i in range(10):
+        auth = input("Enter Auth/database type [mysql, mariadb] (Skip will use noauth):").lower()
         if (auth == ''):
             auth = 'noauth'
             return [auth]
@@ -46,10 +48,13 @@ def dinput():
             break
         else:
             print("Auth not support or typo")
+        if (i == 9):
+            print("Please ckeck your database type and try again.")
+            return None
     user = input("username (Skip will use root):")
     if (user == ''):
         user = 'root'
-    password = input("password(Skip will use nopass):")
+    password = getpass("password(Skip will use nopass):")
     host = input("host (Skip will use localhost):")
     if (host == ''):
         host = 'localhost'
@@ -118,6 +123,8 @@ def luckperms(data):
 
 def main():
     data = dinput()
+    if (data == None):
+        return
     try:
         match(data[0]):
             case('noauth'):
